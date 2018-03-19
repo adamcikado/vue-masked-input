@@ -1,5 +1,5 @@
 /*!
-  * vuejs-masked-input v0.5.4
+  * vuejs-masked-input v0.5.5
   * (c) 2018 Andrej Adamcik
   * @license MIT
   */
@@ -537,14 +537,11 @@ var lib = InputMask;
 
 // Copy paste from https://gist.github.com/nuxodin/9250e56a3ce6c0446efa
 function ffpoly() {
-var w = window,
-    d = w.document;
-
-  if (w.onfocusin === undefined) {
-    d.addEventListener('focus', addPolyfill, true);
-    d.addEventListener('blur', addPolyfill, true);
-    d.addEventListener('focusin', removePolyfill, true);
-    d.addEventListener('focusout', removePolyfill, true);
+  if (typeof window !== 'undefined' && window.onfocusin === undefined) {
+    window.document.addEventListener('focus', addPolyfill, true);
+    window.document.addEventListener('blur', addPolyfill, true);
+    window.document.addEventListener('focusin', removePolyfill, true);
+    window.document.addEventListener('focusout', removePolyfill, true);
   }
 
   function addPolyfill(e) {
@@ -559,14 +556,14 @@ var w = window,
 
   function removePolyfill(e) {
     if (!e.c1Generated) { // focus after focusin, so chrome will the first time trigger tow times focusin
-      d.removeEventListener('focus', addPolyfill, true);
-      d.removeEventListener('blur', addPolyfill, true);
-      d.removeEventListener('focusin', removePolyfill, true);
-      d.removeEventListener('focusout', removePolyfill, true);
+      window.document.removeEventListener('focus', addPolyfill, true);
+      window.document.removeEventListener('blur', addPolyfill, true);
+      window.document.removeEventListener('focusin', removePolyfill, true);
+      window.document.removeEventListener('focusout', removePolyfill, true);
     }
     setTimeout(function () {
-      d.removeEventListener('focusin', removePolyfill, true);
-      d.removeEventListener('focusout', removePolyfill, true);
+      window.document.removeEventListener('focusin', removePolyfill, true);
+      window.document.removeEventListener('focusout', removePolyfill, true);
     });
   }
 }
