@@ -1,16 +1,16 @@
 {
   "name": "vuejs-masked-input",
   "description": "Masked input component for Vue.js 2.X",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "author": "niksmr",
   "license": "MIT",
   "homepage": "https://github.com/adamcikado/vuejs-masked-input",
   "main": "dist/vuejs-masked-input.common.js",
-	"module": "dist/vuejs-masked-input.esm.js",
-	"unpkg": "dist/vuejs-masked-input.js",
-	"files": [
-		"dist/*"
-	],
+  "module": "dist/vuejs-masked-input.esm.js",
+  "unpkg": "dist/vuejs-masked-input.js",
+  "files": [
+    "dist/*"
+  ],
   "scripts": {
     "build": "node ./build/build.js",
     "prepublish": "npm run build",
